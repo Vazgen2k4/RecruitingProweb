@@ -152,20 +152,3 @@ class LeftMenu extends StatelessWidget {
   }
 }
 
-
-/* _menuItem(
-                text: 'Выход',
-                icon: Icons.logout_outlined,
-                // Функция выхода (Асинхронная)
-                exit: () async {
-                  final provider = Provider.of<GoogleSignInProvider>(
-                    user.routContext!,
-                    listen: false,
-                  );
-                  await provider.logout();
-                  if (curentRoute != '/')
-                    Navigator.of(context)
-                        .pushNamedAndRemoveUntil('/', (route) => false);
-                },
-              ),
-            ), */
