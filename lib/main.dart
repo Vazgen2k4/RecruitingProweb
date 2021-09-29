@@ -48,8 +48,10 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(
               color: Colors.black,
             ),
+            // ignore: deprecated_member_use
+            
           ),
-          fontFamily: 'Lato',
+          // fontFamily: 'Lato',
           scaffoldBackgroundColor: textColor,
         ),
       ),

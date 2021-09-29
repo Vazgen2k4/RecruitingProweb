@@ -41,13 +41,15 @@ final List<Widget> Role = [
 final List<BoxShadow> formShadow = [
   BoxShadow(
     color: textEnabelColor,
-    offset: Offset(0, 3),
-    blurRadius: 6,
+    offset: Offset(0, 20),
+    blurRadius: 20,
+    spreadRadius: -15
   ),
   BoxShadow(
     color: textEnabelColor,
-    offset: Offset(3, 0),
-    blurRadius: 6,
+    offset: Offset(0, -10),
+    blurRadius: 20,
+    spreadRadius: -15
   ),
 ];
 

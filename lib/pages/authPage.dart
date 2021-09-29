@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:recruting_proweb/components/MyContainer.dart';
 import 'package:recruting_proweb/provider/google_sigin_in.dart';
 import '../components/Consts.dart';
 
@@ -115,15 +116,14 @@ class _AuthorizationState extends State<Authorization> {
         child: Column(
           children: [
             Text(
-              'Добро пожаловать',
+              'PROWEB',
               style: TextStyle(
                 color: primaryColor,
-                fontSize: 18,
-                fontFamily: 'Lato',
-                fontWeight: FontWeight.w400,
+                fontSize: 40,
+                fontWeight: FontWeight.bold
               ),
             ),
-            SizedBox(height: 52),
+            SizedBox(height: 20),
             _button('Авторизация', _buttonActionWithGoogle, hasIcon: true),
           ],
         ),
@@ -131,13 +131,17 @@ class _AuthorizationState extends State<Authorization> {
     }
 
     return Scaffold(
-      body: StreamBuilder(
-        stream: users.snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          return Center(
-            child: _form(),
-          );
-        },
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        toolbarHeight: 0,
+      ),
+      body: MyContainer(
+        child: Center(
+          child: _form(),
+        ),
       ),
     );
   }
