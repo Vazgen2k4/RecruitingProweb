@@ -60,8 +60,7 @@ class _RootsCompleteState extends State<RootsComplete> {
         return element['email'] == user.email;
       });
 
-      
-      if(rootsData.isNotEmpty) {
+      if (rootsData.isNotEmpty) {
         user.roots = rootsData.first.get('roots');
       }
     }
