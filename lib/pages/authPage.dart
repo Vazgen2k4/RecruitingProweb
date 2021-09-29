@@ -73,29 +73,31 @@ class _AuthorizationState extends State<Authorization> {
     }
 
     void _buttonActionWithGoogle() async {
-      final provider =
-          Provider.of<GoogleSignInProvider>(context, listen: false);
-      await provider.googleLogin();
+      try {
+        final provider =
+            Provider.of<GoogleSignInProvider>(context, listen: false);
+        await provider.googleLogin();
 
-      var info =
-          await users.where('email', isEqualTo: provider.user.email).get();
+        var info =
+            await users.where('email', isEqualTo: provider.user.email).get();
 
-      user.id = info.docs.isEmpty ? '' : info.docs.first.id;
+        user.id = info.docs.isEmpty ? '' : info.docs.first.id;
 
-      if (user.id == '') {
-        var newUser = await users.add({
-          'email': provider.user.email,
-          'name': provider.user.displayName,
-          'imgUrl': provider.user.photoUrl,
-          'nightTheme': false,
-          'gridOnDir': false,
-          'gridOnStages': false,
-          'roots': 0,
-        });
-        user.id = newUser.id;
-      } 
-      
-      
+        if (user.id == '') {
+          var newUser = await users.add({
+            'email': provider.user.email,
+            'name': provider.user.displayName,
+            'imgUrl': provider.user.photoUrl,
+            'nightTheme': false,
+            'gridOnDir': false,
+            'gridOnStages': false,
+            'roots': 0,
+          });
+          user.id = newUser.id;
+        }
+      } catch (e) {
+        borderPrint('Данные не полученны');
+      }
     }
 
     Widget _form() {

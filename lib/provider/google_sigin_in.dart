@@ -3,7 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class GoogleSignInProvider extends ChangeNotifier {
-  final gooolSignIn = GoogleSignIn();
+  final GoogleSignIn gooolSignIn = GoogleSignIn();
 
   GoogleSignInAccount? _user;
   GoogleSignInAccount get user => _user!;
@@ -24,7 +24,7 @@ class GoogleSignInProvider extends ChangeNotifier {
       await FirebaseAuth.instance.signInWithCredential(credential);
       
     } catch (e) {
-      // print(e.toString());
+      print('Что-то пошло не по плану');
     }
     notifyListeners();
   }
