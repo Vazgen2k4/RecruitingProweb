@@ -74,7 +74,7 @@ class LeftMenu extends StatelessWidget {
             // Шапка с логотипом
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
                     top: MediaQuery.of(context).padding.top + 10,
@@ -91,7 +91,10 @@ class LeftMenu extends StatelessWidget {
                   ),
                 ),
                 // Разделительная полоса
-                Divider(),
+                Divider(
+                  endIndent: 3,
+                  color: Colors.blueGrey,
+                ),
                 // Навигационный список
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
@@ -124,7 +127,10 @@ class LeftMenu extends StatelessWidget {
             ),
             Column(
               children: <Widget>[
-                Divider(),
+                Divider(
+                  endIndent: 3,
+                  color: Colors.blueGrey,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: _menuItem(
@@ -151,4 +157,3 @@ class LeftMenu extends StatelessWidget {
     );
   }
 }
-

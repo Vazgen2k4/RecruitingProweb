@@ -25,6 +25,8 @@ class RootsComplete extends StatefulWidget {
   Function updateState;
   // условие для обновления состояния страници
   bool condition;
+  // Функция для плавуюзей кнопки
+  Function? floatingAtion;
 
   RootsComplete({
     Key? key,
@@ -44,6 +46,8 @@ class RootsComplete extends StatefulWidget {
     required this.updateState,
     // Условие для обновления состояния страницы
     required this.condition,
+    // Функция для плавуюзей кнопки
+    this.floatingAtion,
   }) : super(key: key);
 
   @override
@@ -115,6 +119,28 @@ class _RootsCompleteState extends State<RootsComplete> {
             },
           ),
         ),
+
+        floatingActionButton: widget.floatingAtion == null
+            ? null
+            : user.roots == 2
+                ? FloatingActionButton(
+                    backgroundColor:  Color.fromRGBO(194, 231, 255, 1),
+                    onPressed: () {
+                      widget.floatingAtion!();
+                    },
+                    child: Icon(
+                      Icons.add,
+                      color: primaryColor,
+                      size: 30,
+
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(16),
+                      ),
+                    ),
+                  )
+                : null,
       );
     }
 

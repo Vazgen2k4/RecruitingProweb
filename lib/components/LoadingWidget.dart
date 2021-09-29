@@ -92,12 +92,6 @@ class Loading extends StatelessWidget {
           height: 30,
           color: Colors.white,
         ),
-        SizedBox(height: 30),
-        Container(
-          width: 100,
-          height: 30,
-          color: Colors.white,
-        ),
       ],
     );
   }
