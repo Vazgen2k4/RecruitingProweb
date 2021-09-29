@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "606807748860",
+    "project_id": "recruiting-proweb",
+    "storage_bucket": "recruiting-proweb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606807748860:android:008e71eb6ed7899a88a779",
+        "android_client_info": {
+          "package_name": "com.example.recruting_proweb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606807748860-pkpm6a9dr9nmg6fn93pvcksaplf8phcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLJWdGLaek0DDiNJa70keHFP5XmIVoy6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606807748860-pkpm6a9dr9nmg6fn93pvcksaplf8phcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
