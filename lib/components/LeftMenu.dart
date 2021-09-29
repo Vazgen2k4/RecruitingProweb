@@ -24,11 +24,16 @@ class LeftMenu extends StatelessWidget {
       String link = '/',
       // Передача текущей иконки
       required IconData icon,
+      // Передача активной иконки
+      IconData? iconActive,
     }) {
       // Рендер кнопки
       return ListTile(
         // Иконка
-        leading: Icon(icon, color: Colors.black),
+        leading: Icon(
+          curentRoute == link && iconActive != null ? iconActive : icon,
+          color: Colors.black,
+        ),
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         horizontalTitleGap: 0,
         minVerticalPadding: 5,
@@ -105,6 +110,7 @@ class LeftMenu extends StatelessWidget {
                           link: '/directions',
                           text: 'Направления',
                           icon: Icons.verified_user_outlined,
+                          iconActive: Icons.verified_user_rounded,
                         ),
                       SizedBox(height: 5),
                       if (user.roots > 0)
@@ -112,6 +118,7 @@ class LeftMenu extends StatelessWidget {
                           link: '/stages',
                           text: 'Этапы',
                           icon: Icons.assignment_outlined,
+                          iconActive: Icons.assignment_rounded,
                         ),
                       SizedBox(height: 5),
                       if (user.roots == 2)
@@ -119,6 +126,7 @@ class LeftMenu extends StatelessWidget {
                           link: '/users',
                           text: 'Список пользователей',
                           icon: Icons.people_alt_outlined,
+                          iconActive: Icons.people_alt_rounded,
                         ),
                     ],
                   ),
