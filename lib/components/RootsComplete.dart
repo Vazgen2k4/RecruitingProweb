@@ -78,19 +78,56 @@ class _RootsCompleteState extends State<RootsComplete> {
       return Scaffold(
         // Проверка прав для бокового меню
         drawer: user.roots > 0 ? LeftMenu() : null,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: appBarColor,
-          // Заголовок AppBar-а
-          title: Text(
-            widget.appbarTitle,
-            style: TextStyle(color: primaryColor),
+        extendBodyBehindAppBar: true,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70),
+          child: AppBar(
+            // Высота для корректного отображения Appbar
+            toolbarHeight: 70,
+            // Сброс тени
+            elevation: 0,
+            // Просто надпись
+            flexibleSpace: Text('By Vazgen'),
+            // Цвет AppBar
+            backgroundColor: Colors.white,
+            // Отключение кнопок по дефолту
+            automaticallyImplyLeading: false,
+            // Заголовок AppBar-а
+
+            title: MyContainer(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 7),
+                decoration: BoxDecoration(
+                  color: linkTapColor.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(80),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Builder(builder: (context) {
+                      return InkWell(
+                        borderRadius: BorderRadius.circular(80),
+                        onTap: () => Scaffold.of(context).openDrawer(),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.menu),
+                        ),
+                      );
+                    }),
+                    Text(
+                      widget.appbarTitle,
+                      style: TextStyle(color: primaryColor),
+                    ),
+                    widget.profileBtn
+                        ? goProfile(context: context, url: photoUrl)
+                        : SizedBox(width: 50, height: 50),
+                  ],
+                ),
+              ),
+            ),
+            // Проверяем нужен ли переход на профиль
           ),
-          centerTitle: true,
-          // Проверяем нужен ли переход на профиль
-          actions: widget.profileBtn
-              ? [goProfile(context: context, url: photoUrl)]
-              : null,
         ),
         // Основной контент страници оборачиваем в контейнер
         body: MyContainer(
@@ -124,7 +161,7 @@ class _RootsCompleteState extends State<RootsComplete> {
             ? null
             : user.roots == 2
                 ? FloatingActionButton(
-                    backgroundColor:  Color.fromRGBO(194, 231, 255, 1),
+                    backgroundColor: Color.fromRGBO(194, 231, 255, 1),
                     onPressed: () {
                       widget.floatingAtion!();
                     },
@@ -132,7 +169,6 @@ class _RootsCompleteState extends State<RootsComplete> {
                       Icons.add,
                       color: primaryColor,
                       size: 30,
-
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(

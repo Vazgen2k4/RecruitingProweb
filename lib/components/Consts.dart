@@ -56,6 +56,7 @@ final List<BoxShadow> formShadow = [
 // Возврат к профилю (Галвная страница)
 Widget goProfile({BuildContext? context, String? url}) {
   return InkWell(
+    borderRadius: BorderRadius.circular(60),
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: 5),
       width: 50,
