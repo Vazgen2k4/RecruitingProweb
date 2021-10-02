@@ -187,7 +187,7 @@ class _RootsCompleteState extends State<RootsComplete> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return pageBody(
             snapshot: snapshot,
-            child: () => widget.load,
+            child: (snapshot) => widget.load,
             photoUrl: user.imgUrl,
           );
         } else if (snapshot.hasError) {
