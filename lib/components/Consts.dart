@@ -20,7 +20,7 @@ final Color primaryColor = Color.fromRGBO(34, 34, 34, 1);
 final Color textColor = Colors.white;
 
 final Color btnTapColor = Color.fromRGBO(72, 157, 76, 0.6);
-final Color linkTapColor = Color.fromRGBO(221, 238, 253, 0.7);
+final Color linkTapColor = Color.fromRGBO(195, 231, 255, 1);
 final Color driverBgColor = Color.fromRGBO(237, 245, 251, 1);
 final Color textEnabelColor = Color.fromRGBO(0, 0, 0, 0.24);
 final Color appBarColor = Color.fromRGBO(196, 196, 196, 0.1);
@@ -56,6 +56,7 @@ final List<BoxShadow> formShadow = [
 // Возврат к профилю (Галвная страница)
 Widget goProfile({BuildContext? context, String? url}) {
   return InkWell(
+    borderRadius: BorderRadius.circular(60),
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: 5),
       width: 50,

@@ -48,23 +48,8 @@ class _DiractionsPageState extends State<DiractionsPage> {
       load: Loading.list(),
       child: _directionsBody,
       condition: dirList.length == 0,
+      floatingAtion: (){},
     );
   }
 }
 
-
-/* 
-
-floatingActionButton: _roots == 2
-? FloatingActionButton(
-    onPressed: () {},
-    backgroundColor: Theme.of(context).primaryColor,
-    child: Icon(
-      Icons.add,
-      color: primaryColor,
-      size: 30,
-    ),
-  )
-: null,
-
- */

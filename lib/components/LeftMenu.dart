@@ -24,11 +24,16 @@ class LeftMenu extends StatelessWidget {
       String link = '/',
       // Передача текущей иконки
       required IconData icon,
+      // Передача активной иконки
+      IconData? iconActive,
     }) {
       // Рендер кнопки
       return ListTile(
         // Иконка
-        leading: Icon(icon, color: Colors.black),
+        leading: Icon(
+          curentRoute == link && iconActive != null ? iconActive : icon,
+          color: Colors.black,
+        ),
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         horizontalTitleGap: 0,
         minVerticalPadding: 5,
@@ -65,7 +70,6 @@ class LeftMenu extends StatelessWidget {
 
     // Сама менюшка
     return Drawer(
-      backgroundColor: driverBgColor,
       // Лис с контентом (Для прокрутки)
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
@@ -75,7 +79,7 @@ class LeftMenu extends StatelessWidget {
             // Шапка с логотипом
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
                     top: MediaQuery.of(context).padding.top + 10,
@@ -92,7 +96,10 @@ class LeftMenu extends StatelessWidget {
                   ),
                 ),
                 // Разделительная полоса
-                Divider(),
+                Divider(
+                  endIndent: 3,
+                  color: Colors.blueGrey,
+                ),
                 // Навигационный список
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
@@ -103,6 +110,7 @@ class LeftMenu extends StatelessWidget {
                           link: '/directions',
                           text: 'Направления',
                           icon: Icons.verified_user_outlined,
+                          iconActive: Icons.verified_user_rounded,
                         ),
                       SizedBox(height: 5),
                       if (user.roots > 0)
@@ -110,6 +118,7 @@ class LeftMenu extends StatelessWidget {
                           link: '/stages',
                           text: 'Этапы',
                           icon: Icons.assignment_outlined,
+                          iconActive: Icons.assignment_rounded,
                         ),
                       SizedBox(height: 5),
                       if (user.roots == 2)
@@ -117,6 +126,7 @@ class LeftMenu extends StatelessWidget {
                           link: '/users',
                           text: 'Список пользователей',
                           icon: Icons.people_alt_outlined,
+                          iconActive: Icons.people_alt_rounded,
                         ),
                     ],
                   ),
@@ -125,7 +135,10 @@ class LeftMenu extends StatelessWidget {
             ),
             Column(
               children: <Widget>[
-                Divider(),
+                Divider(
+                  endIndent: 3,
+                  color: Colors.blueGrey,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: _menuItem(
@@ -152,21 +165,3 @@ class LeftMenu extends StatelessWidget {
     );
   }
 }
-
-
-/* _menuItem(
-                text: 'Выход',
-                icon: Icons.logout_outlined,
-                // Функция выхода (Асинхронная)
-                exit: () async {
-                  final provider = Provider.of<GoogleSignInProvider>(
-                    user.routContext!,
-                    listen: false,
-                  );
-                  await provider.logout();
-                  if (curentRoute != '/')
-                    Navigator.of(context)
-                        .pushNamedAndRemoveUntil('/', (route) => false);
-                },
-              ),
-            ), */

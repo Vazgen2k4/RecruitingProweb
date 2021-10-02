@@ -47,6 +47,9 @@ class _StagesPageState extends State<StagesPage> {
       load: Loading.list(),
       child: _stagesBody,
       condition: stagesList.length == 0,
+      floatingAtion: () {
+        borderPrint('root is equal ${user.roots}');
+      },
     );
   }
 }
